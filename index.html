@@ -170,7 +170,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="sessionStorage-、localStorage-和-cookie"><a href="#sessionStorage-、localStorage-和-cookie" class="headerlink" title="sessionStorage 、localStorage 和 cookie"></a>sessionStorage 、localStorage 和 cookie</h2><h3 id="cookie和storage"><a href="#cookie和storage" class="headerlink" title="cookie和storage"></a>cookie和storage</h3><p>在存储大小方面来说, cookie4k, storage5M。作为字符串存储，4k已经是不小的空间了，但是这已经无法满足对于存储方面的需求, 现在前端需要将后台的许多报文存储在本地, 而storage的存储量可以满足这个需求。</p>
+        <p>在存储大小方面来说, cookie4k, storage5M。作为字符串存储，4k已经是不小的空间了，但是这已经无法满足对于存储方面的需求, 现在前端需要将后台的许多报文存储在本地, 而storage的存储量可以满足这个需求。</p>
 <p>cookie会被发送到服务器端，这也是服务器可以识别用户信息的原因, 且cookie存储在内存中, 从有效期角度来说, cookie通过expires属性设定有效期, 有效期过后，被存储的用户信息会自动地被删除。而localStorage存储在客户端, 可以实现永久的存储。sessionStorage、localStorage都是缓存技术，API也很相似, 但是sessionStorage存储在内存中, 随着浏览器的关闭它会被自动清除。</p>
 
       

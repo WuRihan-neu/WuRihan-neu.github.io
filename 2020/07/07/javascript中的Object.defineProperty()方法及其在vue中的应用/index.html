@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/7 | Hexo</title>
+  <title>javascript中的Object.defineProperty()方法及其在vue中的应用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/07/index.html">
+  <meta name="description" content="一 属性类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript中的Object.defineProperty()方法及其在vue中的应用">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一 属性类型">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-07T01:04:51.000Z">
+<meta property="article:modified_time" content="2020-07-07T01:58:56.707Z">
 <meta property="article:author" content="我长不高了！！">
 <meta name="twitter:card" content="summary">
   
@@ -148,76 +152,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-javascript中的Object.defineProperty()方法及其在vue中的应用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      javascript中的Object.defineProperty()方法及其在vue中的应用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
+
+        
+        <a href="/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
   	<time datetime="2020-07-07T01:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">javascript中的Object.defineProperty()方法及其在vue中的应用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-属性类型"><a href="#一-属性类型" class="headerlink" title="一 属性类型"></a>一 属性类型</h2><a id="more"></a>
+<p>ECMAScript中有两种属性，分别是数据属性和访问器属性</p>
+<h3 id="1-数据属性"><a href="#1-数据属性" class="headerlink" title="1 数据属性"></a>1 数据属性</h3><p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。</p>
+<ul>
+<li>[[Configurable]]：表示：1 能否通过delete删除属性从而重新定义属性，2 能否修改属性的特性，3 或者能否把属性修改为访问器属性。</li>
+<li>[[Enumberable]]：表示能否通过for-in循环返回属性。</li>
+<li>[[Writable]]：表示能否修改属性的值。</li>
+<li>[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。</li>
+</ul>
+<p>例如，我们定义一个对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">       name:&quot;lucky&quot;,</span><br><span class="line">       age:29,</span><br><span class="line">       sayName:function()&#123;</span><br><span class="line">           alert(this.name)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>该对象的[[Configurable]]、[[Enumberable]]和[[Writable]]特性都被默认地设置为true，而[[Value]]特性被设置为指定的值</p>
+<p>Object.defineProperty()方法可以修改属性默认值的特性。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。其中，描述符对象的属性必须是：configurable、enumerable、writable和value。设置其中的一个或多个值，可以修改对应的特性值。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;&#125;;</span><br><span class="line">Object.defineProperty(person, &quot;name&quot;, &#123;</span><br><span class="line">    writable: false,</span><br><span class="line">    configurable: false,</span><br><span class="line">    value: &quot;lucky&quot;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(person.name); &#x2F;&#x2F;&quot;lucky&quot;</span><br><span class="line">person.name &#x3D; &quot;jack&quot;;</span><br><span class="line">&#x2F;&#x2F;  configurable: false,则不能通过delete删除属性</span><br><span class="line">alert(person.name); &#x2F;&#x2F;&quot;lucky&quot;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>另外，通过调用Object.defineProperty()方法创建一个新属性，如果没有特殊指定，[[Configurable]]、[[Enumberable]]和[[Writable]]特性都被默认地设置为false。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;&#125;</span><br><span class="line">       Object.defineProperty(person, &quot;name&quot;, &#123;</span><br><span class="line">           value: &quot;lucky&quot;</span><br><span class="line">       &#125;);</span><br><span class="line">       var descriptor &#x3D; Object.getOwnPropertyDescriptor(person, &quot;name&quot;);</span><br><span class="line">       console.log(descriptor.value); &#x2F;&#x2F;&#39;lucky&#39;</span><br><span class="line">       console.log(descriptor.configurable); &#x2F;&#x2F;false</span><br><span class="line">       console.log(descriptor.enumerable); &#x2F;&#x2F;false</span><br><span class="line">       console.log(descriptor.writable); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+<p>其中，getOwnPropertyDescriptor方法用于读取属性的特性</p>
+<h3 id="2-访问器属性"><a href="#2-访问器属性" class="headerlink" title="2 访问器属性"></a>2 访问器属性</h3><p>访问器属性不包含数据值；它们包含一对getter和setter函数（都不是必需的）。在读取访问器属性时，会调用getter函数，这个函数负责返回有效的值；在写入访问器属性时，会调用setter函数并传入新值，这个函数负责决定如何处理数据。访问器属性有如下4个特性。</p>
+<ul>
+<li>[[Configurable]]：表示：1 能否通过delete删除属性从而重新定义属性，2 能否修改属性的特性，或者3 能否把属性修改为访问器属性。</li>
+<li>[[Enumberable]]：表示能否通过for-in循环返回属性。</li>
+<li>[[Get]]：在读取属性时调用的函数。</li>
+<li>[[Set]]：在写入属性时调用的函数。<br>访问器属性不能直接定义，必须使用Object.defineProperty()来定义<br>例子如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var book &#x3D; &#123;</span><br><span class="line">    _year: 2004,</span><br><span class="line">   edition: 1</span><br><span class="line">&#125;;</span><br><span class="line">Object.defineProperty(book, &quot;year&quot;, &#123;</span><br><span class="line">    get: function() &#123;</span><br><span class="line">        return this._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(newValue) &#123;</span><br><span class="line">        if (newValue &gt; 2004) &#123;</span><br><span class="line">            this._year &#x3D; newValue;</span><br><span class="line">            this.edition +&#x3D; newValue -2004;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.year &#x3D; 2005;</span><br><span class="line">alert(book.edition);    &#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+这是使用访问器属性的常见方式，即通过设置一个属性的值会导致其他属性发生变化。<h2 id="二-如何定义多个属性"><a href="#二-如何定义多个属性" class="headerlink" title="二 如何定义多个属性"></a>二 如何定义多个属性</h2>ES5使用Object.defineProperties()方法定义多个属性，这个方法接收两个对象参数：第一个对象是要添加和修改其属性的对象，第二个对象的属性与第一个对象中要添加或修改的属性一一对应。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var book &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Object.defineProperties(book, &#123;</span><br><span class="line">    _year: &#123;</span><br><span class="line">        writable: true,</span><br><span class="line">        value: 2004</span><br><span class="line">    &#125;,</span><br><span class="line">    edition: &#123;</span><br><span class="line">        writable: true,</span><br><span class="line">        value: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    year: &#123;</span><br><span class="line">        get: function() &#123;</span><br><span class="line">            return this._year;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: function() &#123;</span><br><span class="line">            if (newValue &gt; 2004) &#123;</span><br><span class="line">                this._year &#x3D; newValue;</span><br><span class="line">                this.edition +&#x3D; newValue - 2004;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="三-读取属性的特性"><a href="#三-读取属性的特性" class="headerlink" title="三 读取属性的特性"></a>三 读取属性的特性</h2>使用Object.getOwnPropertyDescriptor()方法，可以取得给定属性的描述符。这个方法接收两个参数：属性所在的对象和要读取其描述符的属性名称。返回值是一个对象，如果是访问器属性，这个对象的属性有configurable、enumerable、get和set；如果是数据属性，这个对象的属性有configurable、enumerable、writable和value。</li>
+</ul>
+<h2 id="四-Object-defineProperty-在vue框架中的应用"><a href="#四-Object-defineProperty-在vue框架中的应用" class="headerlink" title="四 Object.defineProperty()在vue框架中的应用"></a>四 Object.defineProperty()在vue框架中的应用</h2><h3 id="1-效果"><a href="#1-效果" class="headerlink" title="1 效果"></a>1 效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">		 const vm &#x3D; new Vue(&#123;</span><br><span class="line">		    el: &quot;#test&quot;,</span><br><span class="line">		    data: &#123;</span><br><span class="line">		      name: &#39;张三&#39;</span><br><span class="line">		    &#125;</span><br><span class="line">		 &#125;)</span><br><span class="line">		  console.log(vm.name)  &#x2F;&#x2F; 读取的是data中的name,  vm代理对data的读操作</span><br><span class="line">		  vm.name &#x3D; &#39;李四&#39; &#x2F;&#x2F; 数据保存到data中的name上, vm代理对data的写操作</span><br><span class="line">		  console.log(vm.name, vm._data.name)</span><br></pre></td></tr></table></figure>
+<h3 id="2-描述"><a href="#2-描述" class="headerlink" title="2 描述"></a>2 描述</h3><ol>
+<li>数据代理: 通过一个对象代理对另一个对象)(在前一个对象内部)中属性的操作(读/写) </li>
+<li>vue 数据代理: 通过 vm 对象来代理 data 对象中所有属性的操作 </li>
+<li>好处: 更方便的操作 data 中的数据 </li>
+</ol>
+<h3 id="3-实现流程"><a href="#3-实现流程" class="headerlink" title="3 实现流程"></a>3 实现流程</h3><ol>
+<li>通过 Object.defineProperty()给 vm 添加与 data 对象的属性对应的属性描述符 </li>
+<li>所有添加的属性都包含 getter/setter </li>
+<li>getter/setter 内部去操作 data<br>在使用vue时，我们可以直接通过操作vm.xxx来读写data中的属性（xxx是定义在data中的属性)，以上内容对该用法的原理进行梳理。</li>
+</ol>
+<p>简单来说，就是通过Object.defineProperty给vm对象添加了和与data属性一一对应的属性描述符。<br>属性描述符中的访问描述符中，有getter和setter。getter和setter的内部去操作data中对应的属性数据。<br>因此，通过vm.xxx，可以对data的属性数据进行操作。通过这个方法，可以对data中的数据进行更为方便的操作</p>
+<p>参考文献：JavaScript 高级程序设计</p>
 
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/04/%E5%85%B3%E4%BA%8Ecookie%E5%92%8Cstorage/" class="archive-article-date">
-  	<time datetime="2020-07-04T07:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/04/%E5%85%B3%E4%BA%8Ecookie%E5%92%8Cstorage/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于cookie和storage</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/04/%E5%85%B3%E4%BA%8Ecookie%E5%92%8Cstorage/">关于cookie和storage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-属性类型"><span class="toc-number">1.</span> <span class="toc-text">一 属性类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据属性"><span class="toc-number">1.1.</span> <span class="toc-text">1 数据属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-访问器属性"><span class="toc-number">1.2.</span> <span class="toc-text">2 访问器属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-如何定义多个属性"><span class="toc-number">2.</span> <span class="toc-text">二 如何定义多个属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-读取属性的特性"><span class="toc-number">3.</span> <span class="toc-text">三 读取属性的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-Object-defineProperty-在vue框架中的应用"><span class="toc-number">4.</span> <span class="toc-text">四 Object.defineProperty()在vue框架中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-效果"><span class="toc-number">4.1.</span> <span class="toc-text">1 效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-描述"><span class="toc-number">4.2.</span> <span class="toc-text">2 描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-实现流程"><span class="toc-number">4.3.</span> <span class="toc-text">3 实现流程</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -240,8 +356,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

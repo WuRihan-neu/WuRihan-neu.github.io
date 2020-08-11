@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>项目描述-模仿小米商城-中 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="项目描述-模仿小米商城-中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目描述-模仿小米商城-中">
+<meta property="og:url" content="http://yoursite.com/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%AD/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="项目描述-模仿小米商城-中">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-03T13:50:54.000Z">
+<meta property="article:modified_time" content="2020-08-11T03:58:23.747Z">
 <meta property="article:author" content="我长不高了！！">
 <meta name="twitter:card" content="summary">
   
@@ -148,211 +152,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-项目描述-模仿小米商城-中" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      项目描述-模仿小米商城-中
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%AD/" class="archive-article-date">
+
+        
+        <a href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%AD/" class="archive-article-date">
   	<time datetime="2020-08-03T13:50:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%AD/">项目描述-模仿小米商城-中</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="项目描述-模仿小米商城-中"><a href="#项目描述-模仿小米商城-中" class="headerlink" title="项目描述-模仿小米商城-中"></a>项目描述-模仿小米商城-中</h3><a id="more"></a>
+<h4 id="组件系统介绍"><a href="#组件系统介绍" class="headerlink" title="组件系统介绍"></a>组件系统介绍</h4><h4 id="NavHeader"><a href="#NavHeader" class="headerlink" title="NavHeader"></a>NavHeader</h4><ol>
+<li>获取产品信息</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> getProductList()&#123;</span><br><span class="line">      this.axios.get(&#39;&#x2F;api&#x2F;products&#39;, &#123;</span><br><span class="line">        params:&#123;</span><br><span class="line">          categoryId:&#39;100012&#39;,</span><br><span class="line">          &#x2F;&#x2F;pageSize:6 &#x2F;&#x2F; 因为首页渲染了6个商品，所以可以直接将后台的 pageSize设为6</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;).then((res) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; 除了pageSize:6，还可以从phoneList中截取6个</span><br><span class="line">        if(res.list.length &gt; 6)&#123; </span><br><span class="line">          &#x2F;&#x2F; 截取</span><br><span class="line">          this.phoneList &#x3D; res.list.slice(0, 6) </span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>get请求参数写params中，post 请求，参数直接写即可。请求发送成功后，开始渲染页面，将产品展示出来。其中，对于产品价格的显示需要使用过滤器，以规范格式，甚至有些数据库采用 角 为单位，此时需要转换单位再显示</p>
+<ol start="2">
+<li><p>过滤器的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filters:&#123;</span><br><span class="line">   currency(val)&#123;</span><br><span class="line">     if (!val) return &#39;0.00&#39;</span><br><span class="line">     return val.toFixed(0) + &#39;元起&#39;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环遍历商品</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;li class&#x3D;&quot;product&quot; v-for&#x3D;&quot;(item, index) in phoneList&quot; :key&#x3D;&quot;index&quot;&gt;</span><br><span class="line">    &lt;a :href&#x3D;&quot;&#39;&#x2F;#&#x2F;product&#x2F;&#39;+item.id&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;pro_img&quot;&gt;</span><br><span class="line">        &lt;img v-lazy&#x3D;&quot;item.mainImage&quot;&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;pro_name&quot;&gt;&#123;&#123;item.name&#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;pro_price&quot;&gt;&#123;&#123;item.price | currency&#125;&#125;&lt;&#x2F;div&gt; &#x2F;&#x2F; 过滤器使用</span><br><span class="line">    &lt;&#x2F;a&gt;</span><br><span class="line">&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
+<p>绑定key可以有助于缓存，提升性能。循环的每个item都有一个唯一的key值。</p>
+<ol start="4">
+<li>保存用户名和购物车数量信息（vuex）</li>
+</ol>
+<p>由于app.vue发请求需要时间，若直接渲染username，在请求没完成时，已经开始渲染了。因此通过 computed 获得username</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">   username()&#123;</span><br><span class="line">     return this.$store.state.username</span><br><span class="line">   &#125;,</span><br><span class="line">   cartCount()&#123;</span><br><span class="line">     return this.$store.state.cartCount</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>另外，如果是从购物车或者登陆页面转来到首页，需要重新拉取购物车数量，分发给vuex的actions，再有actions提交给mutations，然后更新页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    this.getProductList()</span><br><span class="line">    let params &#x3D; this.$route.params &#x2F;&#x2F;</span><br><span class="line">    if(params &amp;&amp; params.from &#x3D;&#x3D; &#39;login&#39; || params.from &#x3D;&#x3D; &#39;cart&#39;)&#123;</span><br><span class="line">      this.getCartNum()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">method&#123;</span><br><span class="line">    getCartNum()&#123;</span><br><span class="line">       this.axios.get(&#39;&#x2F;api&#x2F;carts&#x2F;products&#x2F;sum&#39;).then((res&#x3D;0)&#x3D;&gt;&#123;</span><br><span class="line">         this.$store.dispatch(&#39;saveCartCount&#39;, res)</span><br><span class="line">       &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ol start="5">
+<li>退出登录功能</li>
+</ol>
+<p>请求退出登录后，1)引用了element-ui中的message组件。2)cookie设为过期。 3)用户名设为空 4)购物车数量设为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">logout()&#123;</span><br><span class="line">      this.axios.post(&#39;&#x2F;api&#x2F;user&#x2F;logout&#39;).then(() &#x3D;&gt; &#123;</span><br><span class="line">          this.$message.success(&#39;您已退出登录&#39;)</span><br><span class="line">          this.$cookie.set(&#39;userId&#39;, &#39;&#39;, &#123;expires:&quot;-1&quot;&#125;)</span><br><span class="line">          this.$store.dispatch(&#39;saveUserName&#39;, &#39;&#39;)</span><br><span class="line">          this.$store.dispatch(&#39;saveCartCount&#39;, 0)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="OrderHeader"><a href="#OrderHeader" class="headerlink" title="OrderHeader"></a>OrderHeader</h4><ol>
+<li>插槽</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;title fl&quot;&gt;&#123;&#123;title&#125;&#125;</span><br><span class="line">   &lt;slot name&#x3D;&quot;tip&quot;&gt;</span><br><span class="line">       &lt;span&gt;&lt;&#x2F;span&gt;</span><br><span class="line">   &lt;&#x2F;slot&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>路由跳转</p>
+<ul>
+<li>直接跳转</li>
+<li>指定路由名称，和params参数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 this.$router.push(&#39;&#x2F;cart&#39;)</span><br><span class="line">2 this.$router.push(&#123;</span><br><span class="line">         name:&#39;index&#39;,</span><br><span class="line">         params:&#123;</span><br><span class="line">           from:&#39;cart&#39;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>vuex中map语法的使用，先引入，在使用</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;mapState&#125; from &#39;vuex&#39;</span><br><span class="line"> computed: &#123;</span><br><span class="line">     ...mapState([&#39;username&#39;])</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="Model组件"><a href="#Model组件" class="headerlink" title="Model组件"></a>Model组件</h4><ol>
+<li><p>利用vue自带的transition组件实现动画, 将弹出框用transition包裹，name值设为side，css设置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">transition: all .5s;</span><br><span class="line">   &amp;.slide-enter-active &#123;</span><br><span class="line">       top: 0;</span><br><span class="line">   &#125;</span><br><span class="line">   &amp;.slide-leave-active &#123;</span><br><span class="line">       top: -100%;</span><br><span class="line">   &#125;</span><br><span class="line">   &amp;.slide-enter &#123;</span><br><span class="line">       top: -100%;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Model的使用</p>
+</li>
+</ol>
+<ul>
+<li>利用了props，实现父组件和子组件间的通信(父 ==&gt; 子)</li>
+<li>通过vue自定义事件(子 ==&gt; 父)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;modal title&#x3D;&quot;提示&quot;</span><br><span class="line">   sureText&#x3D;&quot;查看购物车&quot; </span><br><span class="line">   btnType&#x3D;&quot;1&quot;</span><br><span class="line">   modalType&#x3D;&quot;middle&quot; </span><br><span class="line">   v-bind:showModal&#x3D;&#39;showModal&#39;</span><br><span class="line">   @submit&#x3D;&quot;goToCart&quot;  &#x2F;&#x2F; 自定义时间</span><br><span class="line">   @cancel&#x3D;&quot;showModal&#x3D;false&quot;</span><br><span class="line">   &gt;</span><br><span class="line">   &lt;template v-slot:body&gt;</span><br><span class="line">     &lt;p&gt;商品添加成功!&lt;&#x2F;p&gt; &#x2F;&#x2F; 插槽</span><br><span class="line">   &lt;&#x2F;template&gt;</span><br><span class="line">   &lt;&#x2F;modal&gt;</span><br></pre></td></tr></table></figure>
+<p>子组件接收属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> props:&#123;</span><br><span class="line">        &#x2F;&#x2F; 弹框类型主要分为小small，中middle，大large，表单form</span><br><span class="line">        modalType:&#123;</span><br><span class="line">            type: String,</span><br><span class="line">            default:&#39;form&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x2F;&#x2F; 标题</span><br><span class="line">        title: String,</span><br><span class="line">        &#x2F;&#x2F; 按钮，类型：1确认2取消3兼具</span><br><span class="line">        btnType: String,</span><br><span class="line">        sureText: &#123;</span><br><span class="line">            type: String,</span><br><span class="line">            default: &#39;确认&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        cancelText: &#123;</span><br><span class="line">            type: String,</span><br><span class="line">            default: &#39;取消&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        showModal: Boolean       </span><br><span class="line">    &#125;</span><br><span class="line">v-on:click&#x3D;&quot;$emit(&#39;submit&#39;)&quot; &#x2F;&#x2F; 触发事件</span><br><span class="line">v-on:click&#x3D;&quot;$emit(&#39;cancel&#39;)&quot; &#x2F;&#x2F; 触发事件</span><br></pre></td></tr></table></figure>
+
+<h4 id="ProductParam组件"><a href="#ProductParam组件" class="headerlink" title="ProductParam组件"></a>ProductParam组件</h4><ol>
+<li><p>吸顶功能</p>
+<ul>
+<li>绑定类 <code>:class=&quot;{&#39;is_fixed&#39;:isFixed}&quot;</code></li>
+<li>说明：isFixed初始值为false，当页面到达一定高度，开启固定定位</li>
+<li>生命周期钩子：mounted进行事件监听 , destroyed移除监听.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    window.addEventListener(&#39;scroll&#39;, this.initHeight)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">   initHeight()&#123;</span><br><span class="line">        let scrollTop &#x3D; window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop</span><br><span class="line">        this.isFixed &#x3D; scrollTop &gt; 210 ? true : false</span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">destroyed() &#123;</span><br><span class="line">   window.removeEventListener(&#39;scroll&#39;, this.initHeight, false)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%AD/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%8A/" class="archive-article-date">
-  	<time datetime="2020-08-03T13:45:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%8A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目描述-模仿小米商城(上)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/03/%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0-%E6%A8%A1%E4%BB%BF%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E-%E4%B8%8A/">项目描述-模仿小米商城(上)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目描述-模仿小米商城-中"><span class="toc-number">1.</span> <span class="toc-text">项目描述-模仿小米商城-中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#组件系统介绍"><span class="toc-number">1.1.</span> <span class="toc-text">组件系统介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NavHeader"><span class="toc-number">1.2.</span> <span class="toc-text">NavHeader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OrderHeader"><span class="toc-number">1.3.</span> <span class="toc-text">OrderHeader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Model组件"><span class="toc-number">1.4.</span> <span class="toc-text">Model组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ProductParam组件"><span class="toc-number">1.5.</span> <span class="toc-text">ProductParam组件</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/23/%E8%A7%A3%E5%86%B3element-ui%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5babel%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2020-07-23T03:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/%E8%A7%A3%E5%86%B3element-ui%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5babel%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84%E9%94%99%E8%AF%AF/">解决element-ui按需引入babel配置导致的错误</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/08/vue-%E4%B8%AD%E4%BD%BF%E7%94%A8iconfont%E7%9A%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2020-07-08T02:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/08/vue-%E4%B8%AD%E4%BD%BF%E7%94%A8iconfont%E7%9A%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">vue 中使用iconfont的踩坑记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-07-07T01:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/javascript%E4%B8%AD%E7%9A%84Object.defineProperty()%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%9C%A8vue%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">javascript中的Object.defineProperty()方法及其在vue中的应用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/04/%E5%85%B3%E4%BA%8Ecookie%E5%92%8Cstorage/" class="archive-article-date">
-  	<time datetime="2020-07-04T07:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/04/%E5%85%B3%E4%BA%8Ecookie%E5%92%8Cstorage/">关于cookie和storage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/22/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-06-22T03:00:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/22/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Markdown的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -375,8 +392,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
